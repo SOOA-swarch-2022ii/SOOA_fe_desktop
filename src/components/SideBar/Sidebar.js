@@ -1,9 +1,9 @@
 import React from "react";
 import Logo from "../../assets/sooa_logo_2.png";
 import {NavLink, useNavigate} from 'react-router-dom'
-import './Header.css';
+import './Sidebar.css';
 
-const Header = ({isLogged}) =>{
+const Sidebar = ({isLogged}) =>{
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -11,19 +11,20 @@ const Header = ({isLogged}) =>{
         isLogged(false)
     };
     return(
-        <div className="header-nav">
-            <div className="container">
-
-                <div className="brand">
-                    <a href="/"><img className="navLogo" src={Logo} alt="image"/></a>
-                </div>
-
+        <div className="sidebar">
+            <div className="items">
                 <div>
-                    <a className="logout" >cerrar sesión</a>
+                    Incribir asignaturas
+                </div>
+                <div>
+                    Historia académica
+                </div>
+                <div>
+                    Buscador de cursos
                 </div>
             </div>
         </div>
     )
 }
 
-export default Header;
+export default Sidebar;

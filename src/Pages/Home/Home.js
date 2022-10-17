@@ -1,10 +1,15 @@
 import React from 'react';
 import Header from "../../components/Header/Header";
+import "./Home.css";
+import Sidebar from "../../components/SideBar/Sidebar";
+
 const Home = ({handleLogged}) => {
+
     return(
-        <div>
+        <div className="portal">
             <Header isLogged={handleLogged}/>
-            home
+
+            <Sidebar />
         </div>
     )
 }
