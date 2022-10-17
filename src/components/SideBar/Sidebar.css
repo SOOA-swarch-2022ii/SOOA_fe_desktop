@@ -7,11 +7,39 @@ html, body {
 }
 
 .items {
-  padding: 50px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 280px;
   height: 100%;
   border-radius: 10px;
-  background: #fecc01;
+  background: #ffffff;
+  align-items: flex-start;
+  color: #333333;
+}
+
+.line{
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  border-radius: 10px;
+}
+.line:hover{
+  background-color: #fecc01;
+  transition-duration: 0.5s;
+}
+
+.user{
+  height: 40px;
+  width: 40px;
+  margin-right: 15px;
+}
+
+.icon{
+  height: 20px;
+  width: 20px;
+  filter: invert(16%) sepia(14%) saturate(0%) hue-rotate(212deg) brightness(93%) contrast(87%);
+  margin-right: 10px;
 }

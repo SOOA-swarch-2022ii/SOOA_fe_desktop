@@ -15,7 +15,7 @@ const Header = ({isLogged}) =>{
             <div className="container">
 
                 <div className="brand">
-                    <a href="/"><img className="navLogo" src={Logo} alt="image"/></a>
+                    <img className="navLogo" src={Logo} alt="image"/>
                 </div>
 
                 <div>

@@ -1,5 +1,9 @@
 import React from "react";
-import Logo from "../../assets/sooa_logo_2.png";
+import  iHome from '../../assets/home.svg'
+import iPencil from '../../assets/pencil.svg'
+import iRecord from '../../assets/record.svg'
+import iUser from '../../assets/user.png'
+import iSearch from '../../assets/search.svg'
 import {NavLink, useNavigate} from 'react-router-dom'
 import './Sidebar.css';
 
@@ -13,15 +17,26 @@ const Sidebar = ({isLogged}) =>{
     return(
         <div className="sidebar">
             <div className="items">
-                <div>
+                <a className="line">
+                    <img src={iUser} className="user" alt="user"/>
+                    Diego Alejandro Irreño Torres
+                </a>
+                <a className="line">
+                    <img src={iHome} className="icon" alt="home"/>
+                    Inicio
+                </a>
+                <a className="line">
+                    <img src={iPencil} className="icon" alt="pencil"/>
                     Incribir asignaturas
-                </div>
-                <div>
+                </a>
+                <a className="line">
+                    <img src={iRecord} className="icon" alt="record"/>
                     Historia académica
-                </div>
-                <div>
+                </a>
+                <a className="line">
+                    <img src={iSearch} className="icon" alt="search"/>
                     Buscador de cursos
-                </div>
+                </a>
             </div>
         </div>
     )
