@@ -14,7 +14,7 @@ const Header = ({isLogged}) =>{
         <div className="header-nav">
             <div className="container">
 
-                <div className="brand">
+                <div onClick={handleClick} className="brand">
                     <img className="navLogo" src={Logo} alt="image"/>
                 </div>
 
