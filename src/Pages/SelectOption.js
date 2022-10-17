@@ -1,4 +1,5 @@
 import {Sidebar, accessGlobalState, useGlobalState} from "../components/SideBar/Sidebar";
+import Welcome from "./Welcome/Welcome";
 
 
 const SelectOption = () => {
@@ -6,7 +7,7 @@ const SelectOption = () => {
     if (state.get() === 'per'){
         return <h1>Perfil</h1>;
     } else if (state.get() === 'ini'){
-        return <h1>Bienvenido al portal</h1>;
+        return (<Welcome/>);
     } else if (state.get() === 'reg'){
         return <h1>Inscripción de materias</h1>;
     } else if (state.get() === 'his'){

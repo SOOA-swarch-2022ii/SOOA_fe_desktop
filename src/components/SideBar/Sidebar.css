@@ -3,7 +3,7 @@ html, body {
   /*overflow: hidden;*/
 }
 .sidebar{
-  height: 1000px;
+  height: 100vh;
 }
 
 .items {

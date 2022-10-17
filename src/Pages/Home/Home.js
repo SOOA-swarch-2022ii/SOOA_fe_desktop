@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import "./Home.css";
 import {Sidebar, accessGlobalState, useGlobalState} from "../../components/SideBar/Sidebar";
 import SelectOption from "../SelectOption";
+import back from "../../assets/back.png";
 
 const Home = ({handleLogged}) => {
 
@@ -17,21 +18,12 @@ const Home = ({handleLogged}) => {
     return(
         <div className="portal">
             <Header isLogged={handleLogged}/>
-            <div className="main">
-                <Sidebar />
+            <div className="main" style={{ backgroundImage: `url(${back})` }}>
                 <div>
+                    <Sidebar />
+                </div>
+                <div className="conenido">
                     <SelectOption/>
-
-                    <button onClick={handleClick}>Click</button>
-                    {/* 👇️ show elements on click */}
-                    {isShown && (
-                        <div>
-                            <h2>Some content here</h2>
-                        </div>
-                    )}
-
-                    {/* 👇️ show component on click */}
-                    {isShown && <Box />}
                 </div>
             </div>
         </div>
