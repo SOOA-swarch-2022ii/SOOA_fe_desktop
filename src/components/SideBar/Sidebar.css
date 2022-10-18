@@ -7,17 +7,18 @@ html, body {
 }
 
 .items {
-  padding: 10px;
   display: flex;
   flex-direction: column;
   width: 280px;
   height: 100%;
   background: #333333;
   align-items: flex-start;
-  padding-top: 20px;
+  padding: 20px 10px 10px;
   border-right: solid 0.15em;
+  border-bottom: solid 0.15em;
   border-top-right-radius: 15px;
-  border-right-color: #5d5d5d;
+  border-bottom-right-radius: 15px;
+  border-color: #5d5d5d;
 }
 
 .line{
