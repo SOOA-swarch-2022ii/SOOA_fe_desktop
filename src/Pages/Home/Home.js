@@ -19,10 +19,10 @@ const Home = ({handleLogged}) => {
         <div className="portal">
             <Header isLogged={handleLogged}/>
             <div className="main" style={{ backgroundImage: `url(${back})` }}>
-                <div>
+                <div className="side">
                     <Sidebar />
                 </div>
-                <div className="conenido">
+                <div className="contenido">
                     <SelectOption/>
                 </div>
             </div>

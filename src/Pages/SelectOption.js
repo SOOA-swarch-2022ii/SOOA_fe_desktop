@@ -1,19 +1,28 @@
 import {Sidebar, accessGlobalState, useGlobalState} from "../components/SideBar/Sidebar";
 import Welcome from "./Welcome/Welcome";
+import Profile from "./Profile/Profile";
+import RegisterSubject from "./RegisterSubjects/RegisterSubject";
+import AcademicRecord from "./AcademicRecord/AcademicRecord";
 
 
 const SelectOption = () => {
     const state = useGlobalState();
+
     if (state.get() === 'per'){
-        return <h1>Perfil</h1>;
+        return <Profile/>;
+
     } else if (state.get() === 'ini'){
-        return (<Welcome/>);
+        return <Welcome/>;
+
     } else if (state.get() === 'reg'){
-        return <h1>Inscripción de materias</h1>;
+        return <RegisterSubject/>;
+
     } else if (state.get() === 'his'){
-        return <h1>Historia académica</h1>;
+        return <AcademicRecord/>;
+
     } else if (state.get() === 'bus'){
         return <h1>Buscador de cursos</h1>;
+
     }
 
 }
