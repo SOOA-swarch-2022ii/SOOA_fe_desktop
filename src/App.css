@@ -2,6 +2,8 @@
 
 :root {
   --primary-color: #333333;
+  --primary-color-hover:#565656;
+  --primary-color-active:#9e9e9e;
 }
 
 * {
@@ -29,6 +31,13 @@ h1 {
 
 h4 {
   font-weight: 1;
+}
+
+li{
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 15px;
 }
 
 .showcase {
@@ -80,3 +89,5 @@ h4 {
 .btn:hover {
   transform: scale(0.98);
 }
+
+

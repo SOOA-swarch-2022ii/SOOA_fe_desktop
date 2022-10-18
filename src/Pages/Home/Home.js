@@ -22,7 +22,7 @@ const Home = ({handleLogged}) => {
                 <div>
                     <Sidebar />
                 </div>
-                <div className="conenido">
+                <div className="contenido">
                     <SelectOption/>
                 </div>
             </div>

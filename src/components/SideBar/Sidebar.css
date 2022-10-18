@@ -31,9 +31,13 @@ html, body {
 }
 .line:hover{
   background-color: #fecc01;
-  transition-duration: 0.5s;
+  transition-duration: 0.33s;
   color: #333333;
 
+}
+.line:active{
+  background-color: #fdf1be;
+  transition-duration: 0.0s;
 }
 
 .user{
