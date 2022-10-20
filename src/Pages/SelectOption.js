@@ -1,3 +1,4 @@
+import CoursesFinder from "../components/CoursesFinder/CoursesFinder";
 import {Sidebar, accessGlobalState, useGlobalState} from "../components/SideBar/Sidebar";
 import Welcome from "./Welcome/Welcome";
 import Profile from "./Profile/Profile";
@@ -21,8 +22,7 @@ const SelectOption = () => {
         return <AcademicRecord/>;
 
     } else if (state.get() === 'bus'){
-        return <h1>Buscador de cursos</h1>;
-
+        return<CoursesFinder/>;
     }
 
 }

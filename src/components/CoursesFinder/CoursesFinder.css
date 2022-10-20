@@ -1,0 +1,54 @@
+.courses-finder-main {
+    background-color: #6764645d;
+    border: solid 0.15em;
+    border-radius: 0.8em;
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+}
+
+.finder-filters {
+    background-color: #5c515158;
+    border: solid 0.15em;
+    border-radius: 0.8em;
+    margin-left: 2em;
+}
+
+.finder-search-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+    border: solid #fff 1px;
+    margin-top: 25px;
+    opacity: 0.7;
+}
+
+.finder-search-btn:hover {
+    background: var(--primary-color-hover);
+
+}
+
+.finder-search-btn:active {
+    background: var(--primary-color-active);
+
+}
+
+input[type=text] {
+    width: 100%;
+    font-weight: 300;
+    font-size: 1em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: rgba(255, 255, 255, 0.358);
+    border-bottom: 3px solid var(--primary-color-active);
+    padding: 0.5em 0em 0.5em 0.3em
+}
+input[type=text]:hover {
+    background-color: rgba(255, 255, 255, 0.606);
+}
+
+label{
+    color: #fff;
+}
