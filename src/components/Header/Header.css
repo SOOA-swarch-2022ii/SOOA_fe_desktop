@@ -35,6 +35,20 @@
     cursor: pointer;
 }
 
+.logout:hover{
+    background-color: #fecc01;
+    transition-duration: 0.33s;
+    color: #333333;
+}
+
+.logout:active{
+    background-color: #fdf1be;
+    color: #333333;
+    transition-duration: 0.0s;
+}
+
+
+
 .navigation{
     z-index: 2;
 }

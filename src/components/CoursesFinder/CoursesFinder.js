@@ -1,11 +1,11 @@
-import { React, useRef } from "react";
+import { React, useRef ,useState} from "react";
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client';
 import './CoursesFinder.css';
 
 
 const CoursesFinder = ({props}) => {
-
+    
     
     const inputRef = useRef(null);
     const navigate = useNavigate();
