@@ -1,4 +1,6 @@
 import React, {useContext, useState} from "react";
+import {Navigate, useLocation} from "react-router-dom";
+
 import Modal from "./Modal";
 import {
     ModalContainer,
@@ -10,6 +12,7 @@ import {
     InputLogin, InputTxt, SubmitLogin, Warn
 } from "./Login.styles";
 import {useNavigate} from "react-router-dom";
+import RegAndAuthService from "../../services/reg_and_auth.service";
 
 interface  LoginModalWrapperProps {
     isModalVisible: boolean;
@@ -18,41 +21,33 @@ interface  LoginModalWrapperProps {
 }
 
 const Login: React.FC<LoginModalWrapperProps> = ({onBackdropClick, isModalVisible, header, message}) => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [warn, setWarn] = useState("")
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [warn, setWarn] = useState("");
+    const [logged, setLogged] = useState(false);
     const [uid, setUid] = useState(localStorage.getItem("id"));
+
 
     const navigate = useNavigate();
 
-    const submitLogin = async () => {
-        const requestOptions = {
-            method: "POST",
-            headers: { "Content-Type": "application/json"},
-            body: JSON.stringify({email: email, password:password}),
-        }
-        /*
-        const response = await fetch("http://localhost:8000/login", requestOptions);
-        const data = await response.json();
-        const id = data.id
-        const msg = data.message
-
-        if (!response.ok) {
-            console.log("Something went wrong :(");
-        } else if (id !== undefined){
-            setWarn("")
-            setUid(id)
-            localStorage.setItem("id", id)
-            navigate('/profile');
-            console.log(id);
-        } else{
-            setWarn(msg)
-        }
-    */
+    const commitLogin = ({name, role}) => {
+        console.log(name);
+        localStorage.setItem("name", name);
+        localStorage.setItem("role", role);
+        localStorage.setItem("logged", true);
+        setLogged(true);
     }
+
+    const verifyLogin = (login) => {
+        if (login) {
+            console.log(login);
+            RegAndAuthService.getUser(commitLogin);
+        }
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        submitLogin()
+        RegAndAuthService.login(email, password, verifyLogin);
 
     }
 
@@ -62,6 +57,7 @@ const Login: React.FC<LoginModalWrapperProps> = ({onBackdropClick, isModalVisibl
     }
 
     return (<Modal onBackdropClick={onBackdropClick}>
+        {logged && <Navigate replace to="/profile" />}
         <ModalContainer>
             <CloseBtn onClick={onBackdropClick}>
                 <CloseX />
