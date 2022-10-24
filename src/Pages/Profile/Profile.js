@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component, useState} from "react";
 import "./Profile.css"
 
 import RegAndAuthService from "../../services/reg_and_auth.service";
@@ -42,37 +42,34 @@ class Profile extends Component {
     }
 
     render() {
-
         return (
-            <div className="container-fluid py-5" id="about">
-                <div className="container">
-                    <div className="row align-items-center">
+            <div className="main-container-profile">
+                <h1>Perfil {this.state.role.toLowerCase()}</h1>
+                <div className="container-profile">
                         <div className="col-lg-5 pb-4 pb-lg-0">
                             <img className="img-fluid rounded w-50" src={imageProfile} alt="image"/>
                         </div>
                         <div className="col-lg-7">
-                            <h3 className="mb-4">Perfil {this.state.role.toLowerCase()}</h3>
                             <div className="row mb-3">
-                                <div className="col-sm-6 py-2"><h6>Nombre: <span
-                                    className="text-secondary">{this.state.name}</span></h6></div>
-                                <div className="col-sm-6 py-2"><h6>Fecha de nacimiento: <span className="text-secondary">{this.state.dateOfBirth.endsWith("COT")}</span>
-                                </h6></div>
-                                <div className="col-sm-6 py-2"><h6>Sexo: <span
-                                    className="text-secondary">{this.state.sex}</span></h6></div>
-                                <div className="col-sm-6 py-2"><h6>Nacionality: <span
-                                    className="text-secondary">{this.state.nationality}</span></h6></div>
-                                <div className="col-sm-6 py-2"><h6>Telefono: <span
-                                    className="text-secondary">{this.state.phone}</span></h6></div>
-                                <div className="col-sm-6 py-2"><h6>Email: <span
-                                    className="text-secondary">{this.state.email}</span></h6></div>
+                                <div className="col-sm-6 py-2"><b>Nombre: <span
+                                    className="text-secondary">{this.state.name}</span></b></div>
+                                <div className="col-sm-6 py-2"><b>Fecha de nacimiento: <span className="text-secondary">{this.state.dateOfBirth.endsWith("COT")}</span>
+                                </b></div>
+                                <div className="col-sm-6 py-2"><b>Sexo: <span
+                                    className="text-secondary">{this.state.sex}</span></b></div>
+                                <div className="col-sm-6 py-2"><b>Nacionality: <span
+                                    className="text-secondary">{this.state.nationality}</span></b></div>
+                                <div className="col-sm-6 py-2"><b>Telefono: <span
+                                    className="text-secondary">{this.state.phone}</span></b></div>
+                                <div className="col-sm-6 py-2"><b>Email: <span
+                                    className="text-secondary">{this.state.email}</span></b></div>
                                 <div className="col-sm-6 py-2">
-                                    <h6>Dirección: <span className="text-secondary">{this.state.address}</span></h6>
+                                    <b>Dirección: <span className="text-secondary">{this.state.address}</span></b>
                                 </div>
-                                <div className="col-sm-6 py-2"><h6>Numero de identificación: <span
-                                    className="text-secondary">{this.state.identificationNumber}</span></h6></div>
+                                <div className="col-sm-6 py-2"><b>Numero de identificación: <span
+                                    className="text-secondary">{this.state.identificationNumber}</span></b></div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         );
