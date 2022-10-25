@@ -44,7 +44,7 @@ class Profile extends Component {
     render() {
         return (
             <div className="main-container-profile">
-                <h1>Perfil {this.state.role.toLowerCase()}</h1>
+                <h1 className="title">Perfil {this.state.role.toLowerCase()}</h1>
                 <div className="container-profile">
                         <div className="img-column">
                             <img className="img-fluid rounded w-50" src={imageProfile} alt="image"/>
@@ -52,7 +52,7 @@ class Profile extends Component {
                         <div className="text-column">
                                 <div className="line-txt"><b>Nombre: <span
                                     className="text-secondary">{this.state.name}</span></b></div>
-                                <div className="line-txt py-2"><b>Fecha de nacimiento: <span className="text-secondary">{this.state.dateOfBirth.endsWith("COT")}</span>
+                                <div className="line-txt py-2"><b>Fecha de nacimiento: <span className="text-secondary">{this.state.dateOfBirth.slice(0, this.state.dateOfBirth.indexOf("00"))}</span>
                                 </b></div>
                                 <div className="line-txt"><b>Sexo: <span
                                     className="text-secondary">{this.state.sex}</span></b></div>

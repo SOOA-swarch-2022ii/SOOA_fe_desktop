@@ -57,7 +57,7 @@ const Login: React.FC<LoginModalWrapperProps> = ({onBackdropClick, isModalVisibl
     }
 
     return (<Modal onBackdropClick={onBackdropClick}>
-        {logged && <Navigate replace to="/profile" />}
+        {logged && <Navigate replace to="/home" />}
         <ModalContainer>
             <CloseBtn onClick={onBackdropClick}>
                 <CloseX />

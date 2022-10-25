@@ -24,7 +24,7 @@ const Sidebar = ({isLogged}) =>{
             <div className="items">
                 <a className="line" onClick={() => state.set('per')}>
                     <img src={iUser} className="user" alt="user"/>
-                    Diego Alejandro Irreño Torres
+                    {localStorage.getItem("name") || ""}
                 </a>
                 <a className="line" onClick={() => state.set('ini')}>
                     <img src={iHome} className="icon" alt="home"/>
