@@ -1,4 +1,6 @@
 .welcome{
     display: flex;
     padding-right: 50px;
+    color: white;
+    justify-content: center;
 }

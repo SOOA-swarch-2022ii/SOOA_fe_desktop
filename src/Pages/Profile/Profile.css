@@ -9,3 +9,11 @@
     flex-direction: row;
     border-radius: 15px;
 }
+
+.text-column{
+    padding-left: 50px;
+}
+
+.line-txt{
+    margin-top: 15px;
+}
