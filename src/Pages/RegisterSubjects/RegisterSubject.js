@@ -63,4 +63,5 @@ const RegisterSubject = () => {
         </div>
     );
 }
+
 export default RegisterSubject
