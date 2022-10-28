@@ -1,0 +1,48 @@
+.register-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.register-container button {
+    margin-left: 20px;
+}
+
+.register-container label {
+    width: 100%;
+}
+
+.flex-container {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    color: white;
+}
+
+.course-list {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.course-container {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+    background: var(--primary-color);
+}
+
+.group-list {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.course-list-container {
+    padding: 20px 0;
+    width: 100%;
+}
+
+.group-list-container {
+    margin-left: 20px;
+    padding: 20px 0;
+}
