@@ -6,6 +6,8 @@ import iUser from '../../assets/user.png'
 import iSearch from '../../assets/search.svg'
 import { hookstate, useHookstate, State } from '@hookstate/core';
 import './Sidebar.css';
+import multiavatar from "@multiavatar/multiavatar";
+import SVG from "react-inlinesvg";
 
 const globalState = hookstate('ini');
 const getOption = (s: State<number>) => ({
@@ -18,13 +20,15 @@ const useGlobalState = () => getOption(useHookstate(globalState))
 
 const Sidebar = ({isLogged}) =>{
     const state = useGlobalState();
+    const multiavatar = require('@multiavatar/multiavatar')
+    let avatar = multiavatar(localStorage.getItem("name"))
 
     return(
         <div className="sidebar">
             <div className="items">
                 <a className="line" onClick={() => state.set('per')}>
-                    <img src={iUser} className="user" alt="user"/>
-                    Diego Alejandro Irreño Torres
+                    <SVG className="user" alt="user" src={avatar} />
+                    {localStorage.getItem("name") || ""}
                 </a>
                 <a className="line" onClick={() => state.set('ini')}>
                     <img src={iHome} className="icon" alt="home"/>

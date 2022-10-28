@@ -4,6 +4,7 @@ import RegAndAuthService from "../../services/reg_and_auth.service";
 import AcademicRecordService from "../../services/academic_record.service";
 
 let color
+let estado
 const result = JSON.parse(localStorage.getItem('user'));
 class AcademicRecord extends Component {
     constructor(props) {
@@ -44,17 +45,19 @@ class AcademicRecord extends Component {
 
     render() {
         if (this.state.status == true){
+            estado = "Abierto"
             color = "green"
         }else {
+            estado = "Cerrado"
             color = "red"
         }
-        const subjects_pending_list = this.state.subjects_pending.split(",");
+        //const subjects_pending_list = this.state.subjects_pending.split(",");
         return (
             <div className="record">
                 <div>
                     <h1>Historia Académica</h1>
                     <h2>{this.state.career}</h2>
-                    <b>Estado: Abierto <span style={{color}}>●</span> </b>
+                    <b>Estado: {estado} <span style={{color}}>●</span> </b>
                     <br/>
                     <b>Facultad de {this.state.faculty}, {this.state.campus}</b>
                 </div>
@@ -65,7 +68,7 @@ class AcademicRecord extends Component {
                     </div>
                     <div className="sr">
                         <h2 className="srt">Materias pendientes</h2>
-                        <h2 className="srt">{subjects_pending_list}</h2>
+                        <h2 className="srt">{this.state.subjects_pending}</h2>
                     </div>
                     <div className="small">
                         <h2 className="sm">PAPA</h2>

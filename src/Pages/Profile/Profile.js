@@ -1,6 +1,6 @@
 import React, {Component, useState} from "react";
 import "./Profile.css"
-
+import SVG from 'react-inlinesvg';
 import RegAndAuthService from "../../services/reg_and_auth.service";
 import imageProfile from "../../assets/profile.jpg";
 
@@ -42,33 +42,34 @@ class Profile extends Component {
     }
 
     render() {
+        const multiavatar = require('@multiavatar/multiavatar')
+        let avatar = multiavatar(this.state.name)
+
         return (
             <div className="main-container-profile">
-                <h1>Perfil {this.state.role.toLowerCase()}</h1>
+                <h1 className="title">Perfil {this.state.role.toLowerCase()}</h1>
                 <div className="container-profile">
-                        <div className="col-lg-5 pb-4 pb-lg-0">
-                            <img className="img-fluid rounded w-50" src={imageProfile} alt="image"/>
+                        <div className="img-column">
+                            <SVG height="200" width="200" src={avatar} />
                         </div>
-                        <div className="col-lg-7">
-                            <div className="row mb-3">
-                                <div className="col-sm-6 py-2"><b>Nombre: <span
+                        <div className="text-column">
+                                <div className="line-txt"><b>Nombre: <span
                                     className="text-secondary">{this.state.name}</span></b></div>
-                                <div className="col-sm-6 py-2"><b>Fecha de nacimiento: <span className="text-secondary">{this.state.dateOfBirth.endsWith("COT")}</span>
+                                <div className="line-txt py-2"><b>Fecha de nacimiento: <span className="text-secondary">{this.state.dateOfBirth.slice(0, this.state.dateOfBirth.indexOf("00"))}</span>
                                 </b></div>
-                                <div className="col-sm-6 py-2"><b>Sexo: <span
+                                <div className="line-txt"><b>Sexo: <span
                                     className="text-secondary">{this.state.sex}</span></b></div>
-                                <div className="col-sm-6 py-2"><b>Nacionality: <span
+                                <div className="line-txt"><b>Nacionality: <span
                                     className="text-secondary">{this.state.nationality}</span></b></div>
-                                <div className="col-sm-6 py-2"><b>Telefono: <span
+                                <div className="line-txt"><b>Telefono: <span
                                     className="text-secondary">{this.state.phone}</span></b></div>
-                                <div className="col-sm-6 py-2"><b>Email: <span
+                                <div className="line-txt"><b>Email: <span
                                     className="text-secondary">{this.state.email}</span></b></div>
-                                <div className="col-sm-6 py-2">
+                                <div className="line-txt">
                                     <b>Dirección: <span className="text-secondary">{this.state.address}</span></b>
                                 </div>
-                                <div className="col-sm-6 py-2"><b>Numero de identificación: <span
+                                <div className="line-txt"><b>Numero de identificación: <span
                                     className="text-secondary">{this.state.identificationNumber}</span></b></div>
-                            </div>
                         </div>
                 </div>
             </div>

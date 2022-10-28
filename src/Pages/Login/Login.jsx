@@ -30,8 +30,9 @@ const Login: React.FC<LoginModalWrapperProps> = ({onBackdropClick, isModalVisibl
 
     const navigate = useNavigate();
 
-    const commitLogin = ({name, role}) => {
+    const commitLogin = ({name, email, role}) => {
         console.log(name);
+        localStorage.setItem("user", JSON.stringify(email.slice(0, email.indexOf("@"))))
         localStorage.setItem("name", name);
         localStorage.setItem("role", role);
         localStorage.setItem("logged", true);
@@ -57,7 +58,7 @@ const Login: React.FC<LoginModalWrapperProps> = ({onBackdropClick, isModalVisibl
     }
 
     return (<Modal onBackdropClick={onBackdropClick}>
-        {logged && <Navigate replace to="/profile" />}
+        {logged && <Navigate replace to="/home" />}
         <ModalContainer>
             <CloseBtn onClick={onBackdropClick}>
                 <CloseX />

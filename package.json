@@ -5,6 +5,7 @@
   "dependencies": {
     "@apollo/client": "^3.7.0",
     "@hookstate/core": "^4.0.0-rc21",
+    "@multiavatar/multiavatar": "^1.0.7",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
