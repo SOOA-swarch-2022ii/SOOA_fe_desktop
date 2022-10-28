@@ -2,6 +2,8 @@ import React, {Component, useState} from "react";
 import "./AcademicRecord.css"
 import RegAndAuthService from "../../services/reg_and_auth.service";
 import AcademicRecordService from "../../services/academic_record.service";
+import SubjectCourseService from "../../services/subject_course.service";
+import Subject from "../../components/CoursesFinder/Subject";
 
 let color
 let estado
@@ -52,6 +54,12 @@ class AcademicRecord extends Component {
             color = "red"
         }
         //const subjects_pending_list = this.state.subjects_pending.split(",");
+        let subjects_record_list = []
+        if (this.state.subjects_record.indexOf(',') > -1) {
+            subjects_record_list = this.state.subjects_record.split(',')
+        } else {
+            subjects_record_list[0] = this.state.subjects_record
+        }
         return (
             <div className="record">
                 <div>
@@ -64,7 +72,7 @@ class AcademicRecord extends Component {
                 <div className="r2">
                     <div className="sr">
                         <h2 className="srt">Materias cursadas</h2>
-                        <h2 className="srt">{this.state.subjects_record}</h2>
+                        <h2 className="srt"><Subject code={subjects_record_list[0]} /></h2>
                     </div>
                     <div className="sr">
                         <h2 className="srt">Materias pendientes</h2>
@@ -85,8 +93,8 @@ class AcademicRecord extends Component {
     }
 
     componentDidMount() {
-
         AcademicRecordService.getAcademicRecord(result,this.setInfoAcademicRecord);
+        SubjectCourseService.getSubjectByCode(result,this.setInfoSubject)
     }
 
 }
