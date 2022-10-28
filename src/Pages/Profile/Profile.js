@@ -1,6 +1,6 @@
 import React, {Component, useState} from "react";
 import "./Profile.css"
-
+import SVG from 'react-inlinesvg';
 import RegAndAuthService from "../../services/reg_and_auth.service";
 import imageProfile from "../../assets/profile.jpg";
 
@@ -42,12 +42,15 @@ class Profile extends Component {
     }
 
     render() {
+        const multiavatar = require('@multiavatar/multiavatar')
+        let avatar = multiavatar(this.state.name)
+
         return (
             <div className="main-container-profile">
                 <h1 className="title">Perfil {this.state.role.toLowerCase()}</h1>
                 <div className="container-profile">
                         <div className="img-column">
-                            <img className="img-fluid rounded w-50" src={imageProfile} alt="image"/>
+                            <SVG height="200" width="200" src={avatar} />
                         </div>
                         <div className="text-column">
                                 <div className="line-txt"><b>Nombre: <span
