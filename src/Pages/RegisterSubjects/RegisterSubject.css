@@ -46,3 +46,8 @@
     margin-left: 20px;
     padding: 20px 0;
 }
+
+.success-message {
+    padding: 20px;
+    color: green;
+}
