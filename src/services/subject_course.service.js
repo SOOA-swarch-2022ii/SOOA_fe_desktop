@@ -2,7 +2,7 @@ import axios from "axios";
 
 class SubjectCourseService {
 
-    getSubjectByCode(code,func) {
+    findSubjectByCode(code,func) {
         let body = {
             query: `
           query {
@@ -40,7 +40,7 @@ class SubjectCourseService {
             .catch(error => console.log(error));
     }
 
-    getSubjectByName(name,func) {
+    findSubjectByName(name,func) {
         let body = {
             query: `
           query {

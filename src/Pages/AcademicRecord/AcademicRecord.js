@@ -45,21 +45,32 @@ class AcademicRecord extends Component {
         })
     }
 
+    componentDidMount() {
+        AcademicRecordService.getAcademicRecord(result,this.setInfoAcademicRecord);
+    }
+
     render() {
-        if (this.state.status == true){
+        if (this.state.status === true){
             estado = "Abierto"
             color = "green"
         }else {
             estado = "Cerrado"
             color = "red"
         }
-        //const subjects_pending_list = this.state.subjects_pending.split(",");
+
         let subjects_record_list = []
         if (this.state.subjects_record.indexOf(',') > -1) {
             subjects_record_list = this.state.subjects_record.split(',')
         } else {
             subjects_record_list[0] = this.state.subjects_record
         }
+        const listItems = subjects_record_list.map((subject) =>
+            <span className="srt">{subject}
+            <Subject code="1000003-B" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span> {this.state.papa}</span>
+            </span>
+        )
         return (
             <div className="record">
                 <div>
@@ -72,7 +83,8 @@ class AcademicRecord extends Component {
                 <div className="r2">
                     <div className="sr">
                         <h2 className="srt">Materias cursadas</h2>
-                        <h2 className="srt"><Subject code={subjects_record_list[0]} /></h2>
+                        <br/>
+                        <h2 className="srt">{listItems}</h2>
                     </div>
                     <div className="sr">
                         <h2 className="srt">Materias pendientes</h2>
@@ -90,11 +102,6 @@ class AcademicRecord extends Component {
 
             </div>
         );
-    }
-
-    componentDidMount() {
-        AcademicRecordService.getAcademicRecord(result,this.setInfoAcademicRecord);
-        SubjectCourseService.getSubjectByCode(result,this.setInfoSubject)
     }
 
 }

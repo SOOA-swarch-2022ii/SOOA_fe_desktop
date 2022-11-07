@@ -2,39 +2,45 @@ import { React, useRef ,useState} from "react";
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client';
 import './CoursesFinder.css';
+import SubjectSearch from "./SubjectSearch";
+import SubjectCourseService from "../../services/subject_course.service";
 
 
 const CoursesFinder = ({props}) => {
-    
-    
-    const inputRef = useRef(null);
-    const navigate = useNavigate();
-    
+    const [text, setText] = useState('1000003-B');
 
-    function requestGraphQL() {//llama a graphql pero también se encarga de organizar las materias que encontró
+    const handleChange = event => {
+        setText(event.target.value);
 
-        console.log("this was clicked");
+        console.log('value is:', event.target.value);
     };
+
+    const handleClick = event => {
+        event.preventDefault();
+
+        // 👇️ value of input field
+        console.log(SubjectCourseService.findSubjectByCode(text,));
+    };
+
     return (
         <div className="courses-finder-main">
             <ul className="finder-filters">
                 <li><label>
-                    Nombre:
-                    <input ref={inputRef} type="text" id="finder-name-field" name="name" />
+                    Codigo:
+                    <input type="text" name="name" value={text} onChange={handleChange}/>
                 </label></li>
                 <li><label>
-                    Código:
+                    Nombre:
                     <input type="text" name="code" />
                 </label></li>
-                <li>tipologia</li>
-                <li>créditos</li>
-                <li>Horario</li>
-                <li>Facultad</li>
-                <li>Departamento</li>
-                <li>Carrera</li>
-                <li><button className="finder-search-btn" onClick={requestGraphQL}>Buscar</button> </li>
+                <li>
+                    <SubjectSearch code={text}/>
+                </li>
+                <li><button className="finder-search-btn" onClick={handleClick}>Buscar</button> </li>
+
             </ul>
-            <h1>Buscador de cursooooos</h1>
+            <h1>Buscador de cursos</h1>
+
         </div>
     )
 }

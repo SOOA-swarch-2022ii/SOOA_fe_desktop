@@ -2,7 +2,7 @@ import React, {Component, useState} from "react";
 import "./Profile.css"
 import SVG from 'react-inlinesvg';
 import RegAndAuthService from "../../services/reg_and_auth.service";
-import imageProfile from "../../assets/profile.jpg";
+import AcademicRecordService from "../../services/academic_record.service";
 
 class Profile extends Component {
 
@@ -59,7 +59,7 @@ class Profile extends Component {
                                 </b></div>
                                 <div className="line-txt"><b>Sexo: <span
                                     className="text-secondary">{this.state.sex}</span></b></div>
-                                <div className="line-txt"><b>Nacionality: <span
+                                <div className="line-txt"><b>Nacionalidad: <span
                                     className="text-secondary">{this.state.nationality}</span></b></div>
                                 <div className="line-txt"><b>Telefono: <span
                                     className="text-secondary">{this.state.phone}</span></b></div>
@@ -77,7 +77,6 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-
         RegAndAuthService.getUser(this.setInfoUser);
     }
 

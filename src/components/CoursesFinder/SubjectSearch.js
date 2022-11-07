@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import SubjectCourseService from "../../services/subject_course.service";
 
-class Subject extends Component {
+class SubjectSearch extends Component {
     constructor(props) {
 
         super(props);
@@ -43,8 +43,18 @@ class Subject extends Component {
     }
 
     render() {
+
         return(
-            <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {this.state.name}</span>
+            <div>
+                <li>Nombre: {this.state.name}</li>
+                <li>Código: {this.state.code}</li>
+                <li>Nivel académico: {this.state.academic_level}</li>
+                <li>Unidad académica: {this.state.basic_academic_unit}</li>
+                <li>Contenido: {this.state.content}</li>
+                <li>Créditos: {this.state.credits}</li>
+                <li>Departamento: {this.state.department}</li>
+            </div>
+
         )
     }
 
@@ -53,4 +63,4 @@ class Subject extends Component {
     }
 
 }
-export default Subject
+export default SubjectSearch

@@ -15,7 +15,7 @@ const CourseInfo = (/*aqui deberíamos , con su id, carrera y eso para facilitar
                 <li>cinco</li>
                 <li>seis</li>
             </lu>
-             <h1>Buscador de cursooooos</h1>
+             <h1>Buscador de cursos</h1>
         </div>
     )
 }

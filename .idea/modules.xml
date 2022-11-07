@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SOOA_fe_desktop.iml" filepath="$PROJECT_DIR$/.idea/SOOA_fe_desktop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SOOA_wa.iml" filepath="$PROJECT_DIR$/.idea/SOOA_wa.iml" />
     </modules>
   </component>
 </project>

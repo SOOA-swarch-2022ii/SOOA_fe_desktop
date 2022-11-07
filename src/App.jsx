@@ -5,8 +5,8 @@ import Logo from "./assets/sooa_logo_2.png"
 
 const App = () => {
     const [message, setMessage] = useState("")
-
     const [isModalVisible, setIsModalVisible] = useState(false)
+
 
     const toggleModal = () => {
         setIsModalVisible(wasModalVisible => !wasModalVisible)
@@ -19,17 +19,6 @@ const App = () => {
                 "Content-Type": "application/json",
             },
         }
-        /*
-        const response = await fetch("http://localhost:8000/home", requestOptions);
-        const data = await response.json();
-
-        if (!response.ok) {
-            console.log("Something went wrong :(");
-        } else{
-            setMessage(data.message);
-        }
-        */
-
     }
 
     useEffect(() => {
