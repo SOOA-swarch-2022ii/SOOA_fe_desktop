@@ -30,11 +30,10 @@ const Login: React.FC<LoginModalWrapperProps> = ({onBackdropClick, isModalVisibl
 
     const navigate = useNavigate();
 
-    const commitLogin = ({name, email, role}) => {
+    const commitLogin = ({name, email}) => {
         console.log(name);
-        localStorage.setItem("user", JSON.stringify(email.slice(0, email.indexOf("@"))))
+        localStorage.setItem("user", email);
         localStorage.setItem("name", name);
-        localStorage.setItem("role", role);
         localStorage.setItem("logged", true);
         setLogged(true);
     }

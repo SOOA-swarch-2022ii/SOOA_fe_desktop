@@ -2,39 +2,20 @@ import axios from "axios";
 
 class RegAndAuthService {
 
-    login(username, password, func) {
-        return axios
-            .post('/auth', {
-                username,
-                password
-            }, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                }
-            }).then(response => func(response.data))
-            .catch(error => console.log(error));
-    }
-
-    logout() {
-        localStorage.clear();
-    }
-
-    getUser(func) {
+    login(username, password,func) {
         let body = {
             query: `
-          query {
-            findCurrentUser {
-              name
-              role
-              phone
-              address
-              nationality
-              sex
-              dateOfBirth
-              identificationNumber
-              email
+          mutation{
+                login(
+                    loginForm:{
+                        username
+                        password
+                    }){
+                        user
+                        token
+                        expires
+                }
             }
-          }
         `,
             variables: {}
         }
@@ -48,9 +29,14 @@ class RegAndAuthService {
                 body,
                 options
             ).then(response => {
-                func((response.data).data.findCurrentUser);
+                console.log(response.data);
+                func((response.data).data.login);
             })
             .catch(error => console.log(error));
+    }
+
+    logout() {
+        localStorage.clear();
     }
 
     getAllUsers(func) {
@@ -79,12 +65,20 @@ class RegAndAuthService {
             .catch(error => console.log(error));
     }
 
-    getUserByUsername(username,func) {
+    findUser(username,func) {
         let body = {
             query: `
           query {
-            findOneByUsername(username: "${username}") {
-              name
+            getUser(username: "${username}") {
+                id
+                username
+                birthdate
+                names
+                last_names
+                role
+                password
+                email
+                phone
             }
           }
         `,
@@ -101,14 +95,11 @@ class RegAndAuthService {
                 options
             ).then(response => {
                 console.log(response.data);
-                func((response.data).data.findOneByUsername);
+                func((response.data).data.getUser);
             })
             .catch(error => console.log(error));
     }
 
-    getCurrentUser() {
-        return JSON.parse(localStorage.getItem('user'));
-    }
 }
 
 export default new RegAndAuthService();
