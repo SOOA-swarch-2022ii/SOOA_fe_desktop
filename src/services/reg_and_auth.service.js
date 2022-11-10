@@ -3,13 +3,15 @@ import axios from "axios";
 class RegAndAuthService {
 
     login(username, password,func) {
+
+        console.log("login function username: " + username + " password: " + password);
         let body = {
             query: `
-          mutation{
+            mutation{
                 login(
                     loginForm:{
-                        username
-                        password
+                        username:"${username}"
+                        password:"${password}"
                     }){
                         user
                         token
@@ -29,6 +31,7 @@ class RegAndAuthService {
                 body,
                 options
             ).then(response => {
+                console.log("aqui obtenemos el usuario");
                 console.log(response.data);
                 func((response.data).data.login);
             })
@@ -39,14 +42,21 @@ class RegAndAuthService {
         localStorage.clear();
     }
 
-    getAllUsers(func) {
+    getUser(username,func) {
         let body = {
             query: `
-          query {
-            findAll {
-              name
+            query{
+                getUser(username: "${username}"){
+                    id
+                    username
+                    birthdate
+                    names
+                    last_names
+                    role
+                    email
+                    phone
+                }
             }
-          }
         `,
             variables: {}
         }
@@ -60,40 +70,7 @@ class RegAndAuthService {
                 body,
                 options
             ).then(response => {
-                func((response.data).data.findAll);
-            })
-            .catch(error => console.log(error));
-    }
-
-    findUser(username,func) {
-        let body = {
-            query: `
-          query {
-            getUser(username: "${username}") {
-                id
-                username
-                birthdate
-                names
-                last_names
-                role
-                password
-                email
-                phone
-            }
-          }
-        `,
-            variables: {}
-        }
-        let options = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-        return axios
-            .post('/graphql',
-                body,
-                options
-            ).then(response => {
+                console.log("aqui obtenemos el usuario");
                 console.log(response.data);
                 func((response.data).data.getUser);
             })

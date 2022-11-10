@@ -21,14 +21,14 @@ const useGlobalState = () => getOption(useHookstate(globalState))
 const Sidebar = ({isLogged}) =>{
     const state = useGlobalState();
     const multiavatar = require('@multiavatar/multiavatar')
-    let avatar = multiavatar(localStorage.getItem("name"))
+    let avatar = multiavatar(localStorage.getItem("user"))
 
     return(
         <div className="sidebar">
             <div className="items">
                 <a className="line" onClick={() => state.set('per')}>
                     <SVG className="user" alt="user" src={avatar} />
-                    {localStorage.getItem("name") || ""}
+                    {localStorage.getItem("user") || ""}
                 </a>
                 <a className="line" onClick={() => state.set('ini')}>
                     <img src={iHome} className="icon" alt="home"/>

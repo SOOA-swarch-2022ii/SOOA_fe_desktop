@@ -30,22 +30,33 @@ const Login: React.FC<LoginModalWrapperProps> = ({onBackdropClick, isModalVisibl
 
     const navigate = useNavigate();
 
-    const commitLogin = ({name, email}) => {
-        console.log(name);
-        localStorage.setItem("user", email);
-        localStorage.setItem("name", name);
-        localStorage.setItem("logged", true);
-        setLogged(true);
-    }
 
     const verifyLogin = (login) => {
-        if (login) {
+        console.log("verify login: " + login);
+        if (login) {//el rest obtubo una respuesta en login
+            console.log("existe el login??:");
             console.log(login);
-            RegAndAuthService.getUser(commitLogin);
+            localStorage.setItem('user',JSON.stringify(login.user));
+            localStorage.setItem("logged", true);
+            localStorage.setItem("token", login.token);
+            setLogged(true);
+            RegAndAuthService.getUser(login.user, userGot);
+
         }
     }
 
+    const userGot = (user) => {
+        console.log("user got: ");
+        console.log(user);
+        localStorage.setItem("user_names", user.names);
+    }
+
+
     const handleSubmit = (e) => {
+        //print a message to the console
+        console.log("The form was submitted with the following data:");
+        console.log("Email: " + email);
+        console.log("Password: " + password);
         e.preventDefault();
         RegAndAuthService.login(email, password, verifyLogin);
 
@@ -65,7 +76,7 @@ const Login: React.FC<LoginModalWrapperProps> = ({onBackdropClick, isModalVisibl
             <Header>Inicia Sesión</Header>
             <Message>¡Bienvenido!</Message>
             <LoginForm onSubmit={handleSubmit}>
-                <InputTxt><InputLogin type="email" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} required/></InputTxt>
+                <InputTxt><InputLogin type="text" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} required/></InputTxt>
                 <InputTxt><InputLogin type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required/></InputTxt>
                 <InputTxt><SubmitLogin>Ir al portal</SubmitLogin></InputTxt>
             </LoginForm>
