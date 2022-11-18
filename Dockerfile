@@ -1,19 +1,14 @@
-# ==== CONFIGURE =====
-# Use a Node 16 base image
-FROM node:16-alpine
-# Set the working directory to /app inside the container
+# pull the official base image
+FROM node:12-alpine
+# set working direction
 WORKDIR /app
-# Copy app files
-COPY . .
-# ==== BUILD =====
-# Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
-RUN npm ci
-# Build the app
-RUN npm run build
-# ==== RUN =======
-# Set the env to "production"
-ENV NODE_ENV development
-# Expose the port on which the app will be running (3000 is the default that `serve` uses)
-EXPOSE 3001
-# Start the app
-CMD [ "npx", "serve", "build" ]
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+# install application dependencies
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm i
+# add app
+COPY . ./
+# start app
+CMD ["npm", "start"]
